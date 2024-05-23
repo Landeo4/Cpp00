@@ -1,8 +1,8 @@
-NAME	=	megaphone
+NAME	=	main.c
 
-SRCS	=	megaphone.cpp \
+SRCS	=	main.cpp \
 
-OBJS= $(SRCS:.c=.o)
+OBJS= $(SRCS:.cpp=.o)
 
 CC		=	c++
 
