@@ -1,26 +1,28 @@
 #include "Contact.hpp"
-#include "PhoneBook.class.hpp"
-#include <iostream>
-#include <string>
+#include "PhoneBook.hpp"
 
 int main()
 {
 	std::string x;
+	PhoneBook 	phbIn;
+	Contact		ctcIn;
 
-
-	while (42)
-	{
-		std::cout << "please enter an input" << std::endl;
-		std::cin >> x;
-		if (x == "ADD")
-			ft_add_contact();
-		if (x == "SEARCH")
-			
-		if (x == "EXIT")
-			return 0;
-		else
-			std::cout << "wrong input" << std::endl;
-	}
-	std:: cout << x << std::endl;
+	phbIn.contact();
+	// while (42)
+	// {
+	// 	std::cout << "please enter an input" << std::endl;
+	// 	std::cin >> x;
+	// 	if (x == "ADD")
+	// 	{
+	// 		phbIn.contact();
+	// 	}
+	// 	// if (x == "SEARCH")
+	// 	// 	ft_search_contact(ctc_in);
+	// 	if (x == "EXIT")
+	// 		return 0;
+	// 	else
+	// 		std::cout << "wrong input" << std::endl;
+	// }
 }
+
 // essayer de trouver comment rendre cette excercice plus "c++"

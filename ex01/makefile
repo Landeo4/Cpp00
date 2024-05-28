@@ -1,6 +1,8 @@
-NAME	=	main.c
+NAME	=	Phonebook
 
 SRCS	=	main.cpp \
+			Contact.cpp \
+			PhoneBook_class.cpp \
 
 OBJS= $(SRCS:.cpp=.o)
 
@@ -8,8 +10,8 @@ CC		=	c++
 
 CFLAGS	=	-Wall -Werror -Wextra -g3 -std=c++98
 
-.c.o:
-		${CC} ${CFLAGS} -c -o ${<:.c=.o}
+.cpp.o:
+		${CC} ${CFLAGS} -cpp -o ${<:.cpp=.o}
 
 all : ${NAME}
 
