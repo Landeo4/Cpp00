@@ -3,12 +3,14 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 #include "Contact.hpp"
 
 class PhoneBook{
 	public:
 	PhoneBook(void);
-	int PhoneBook::contact(void);
+	int SetContact(int i);
+	int ContactSearch(int i);
 	~PhoneBook(void);
 
 	private:
