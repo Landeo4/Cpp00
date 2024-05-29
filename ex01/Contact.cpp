@@ -57,3 +57,27 @@ std::string Contact::getDarkestSecret(void)
 {
 	return (this->_darkest_secret);
 }
+
+void Contact::print_data(std::string str)
+{
+	int i = 0;
+
+	if (str.length() > 10)
+	{
+		while (i < 9)
+		{
+			std:: cout << str[i];
+			i++;
+		}
+		std::cout << ".";
+	}
+	else
+	{
+		while (str[i])
+		{
+			std::cout << str[i];
+			i++;
+		}
+		std:: cout << std::setw(10 - i);
+	}
+}

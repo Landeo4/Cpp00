@@ -42,26 +42,51 @@ int PhoneBook::ContactSearch(int i)
 {
 	int j = 0;
 
+	std::cout << "|" << std::setw(10) << "index";
+	std::cout << "|" << std::setw(10) << "first name";
+	std::cout << "|" << std::setw(10) << "last name";
+	std::cout << "|" << std::setw(10) << "nickname";
+	std::cout << "|" << std::endl;
 	while (j < i)
 	{
-		std::cout << "index: " << j;
-		std::cout << std::setprecision(9);
-		std::cout << "first name: " << this->_contact[j].getFirstName();
-		std::cout << "last name: " << this->_contact[j].getLastName();
-		std::cout << "nickname name: " << this->_contact[j].getNickName() << std::endl;
+		std::cout << "|" << std::setw(10) << j << "|";
+		this->_contact[j].print_data(this->_contact[j].getFirstName());
+		std::cout << "|";
+		this->_contact[j].print_data(this->_contact[j].getLastName());
+		std::cout << "|";
+		this->_contact[j].print_data(this->_contact[j].getNickName());
+		std::cout << "|" << std::endl;
+		// std::cout << "|" << std::setw(10) << this->_contact[j].getFirstName();
+		// std::cout << "|" << std::setw(10) << this->_contact[j].getLastName();
+		// std::cout << "|" << std::setw(10) << this->_contact[j].getNickName();
 		j++;
 	}
-	int x;
-	std::cin >> x;
-	std:: cout << "first name: " << this->_contact[x].getFirstName() << std::endl;
-	std:: cout << "last name: " << this->_contact[x].getLastName() << std::endl;
-	std:: cout << "Nick name: " << this->_contact[x].getNickName() << std::endl;
-	std:: cout << "Phone number: " << this->_contact[x].getPhoneNumber() << std::endl;
-	std:: cout << "Darkest secret: " << this->_contact[x].getDarkestSecret() << std::endl;
+	std:: string x;
+	std::cin >> x; // verif nb entrer
+	if (x.length() > 1)
+	{
+		std:: cout << "please enter a good index" << std::endl;
+		return (0);
+	}
+	else if (stoi(x) > 8)
+	{
+		std:: cout << "please enter a good index" << std::endl;
+		return (0);
+	}
+	int index = stoi(x);
+	std:: cout << "first name: " << this->_contact[index].getFirstName() << std::endl;
+	std:: cout << "last name: " << this->_contact[index].getLastName() << std::endl;
+	std:: cout << "Nick name: " << this->_contact[index].getNickName() << std::endl;
+	std:: cout << "Phone number: " << this->_contact[index].getPhoneNumber() << std::endl;
+	std:: cout << "Darkest secret: " << this->_contact[index].getDarkestSecret() << std::endl;
+	// this->is_executed = 1;
 	return (0);
 	//print toute les infos de la recherche (iomanip)
 	//pour construire mon tab je dois:
 	// faire une liste de 4 colonne avec iomanip
 }
+
+// *nomVariable*.lenght
+
 // pour gerer overflow verif la len que je recoit
 // penser a gerer les tabs
