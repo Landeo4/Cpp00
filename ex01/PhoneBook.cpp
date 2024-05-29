@@ -10,10 +10,13 @@ PhoneBook::~PhoneBook(void)
 	return;
 }
 
-int PhoneBook::SetContact(int i)
+int PhoneBook::SetContact(int &i)
 {
 	std::string x;
 
+	if (i > 8)
+		i = 1;
+	std::cout << "voici mon index" << i << std::endl;
 	std::cout << "Please set the first name" << std::endl;
 	std::cin >> x;
 	this->_contact[i].setFirstName(x);
@@ -40,7 +43,7 @@ int PhoneBook::SetContact(int i)
 
 int PhoneBook::ContactSearch(int i)
 {
-	int j = 0;
+	int j = 1;
 
 	std::cout << "|" << std::setw(10) << "index";
 	std::cout << "|" << std::setw(10) << "first name";
@@ -62,18 +65,26 @@ int PhoneBook::ContactSearch(int i)
 		j++;
 	}
 	std:: string x;
+	std::cout << "juste avant 8"
 	std::cin >> x; // verif nb entrer
+	std:: cout << "test pour 8";
+	if (x[0] < 48 || x[0] > 57)
+	{
+		std::cout << "problem with your index" << std::endl;
+		return (1);
+	}
 	if (x.length() > 1)
 	{
 		std:: cout << "please enter a good index" << std::endl;
-		return (0);
+		return (1);
 	}
-	else if (stoi(x) > 8)
+	else if (x[0] == '9')
 	{
 		std:: cout << "please enter a good index" << std::endl;
-		return (0);
+		return (1);
 	}
-	int index = stoi(x);
+	std:: cout << "test pour savoir 8";
+	int index = x[0] - 48;
 	std:: cout << "first name: " << this->_contact[index].getFirstName() << std::endl;
 	std:: cout << "last name: " << this->_contact[index].getLastName() << std::endl;
 	std:: cout << "Nick name: " << this->_contact[index].getNickName() << std::endl;

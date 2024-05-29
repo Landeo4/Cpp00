@@ -78,6 +78,6 @@ void Contact::print_data(std::string str)
 			std::cout << str[i];
 			i++;
 		}
-		std:: cout << std::setw(10 - i);
+		std:: cout << std::setw(11 - i);
 	}
 }
