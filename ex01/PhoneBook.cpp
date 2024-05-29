@@ -10,12 +10,30 @@ PhoneBook::~PhoneBook(void)
 	return;
 }
 
-int PhoneBook::SetContact(int &i)
+void PhoneBook::setIsExecuted(void)
+{
+	this->is_executed = 0;
+}
+
+int PhoneBook::getIsExecuted(void)
+{
+	return (this->is_executed);
+}
+
+void PhoneBook::setFirstOccurence(int set)
+{
+	this->first_occurence = set;
+}
+
+int PhoneBook::getFirstOccurence(void)
+{
+	return (this->first_occurence);
+}
+
+int PhoneBook::setContact(int i)
 {
 	std::string x;
 
-	if (i > 8)
-		i = 1;
 	std::cout << "voici mon index" << i << std::endl;
 	std::cout << "Please set the first name" << std::endl;
 	std::cin >> x;
@@ -32,18 +50,13 @@ int PhoneBook::SetContact(int &i)
 	std::cout << "Please set the darkest secret" << std::endl;
 	std::cin >> x;
 	this->_contact[i].setDarkestSecret(x);
-	// std:: cout << "first name: " << this->_contact[i].getFirstName() << std::endl;
-	// std:: cout << "last name: " << this->_contact[i].getLastName() << std::endl;
-	// std:: cout << "Nick name: " << this->_contact[i].getNickName() << std::endl;
-	// std:: cout << "Phone number: " << this->_contact[i].getPhoneNumber() << std::endl;
-	// std:: cout << "Darkest secret: " << this->_contact[i].getDarkestSecret() << std::endl;
-	// this->_contact[4].getFirstName();
+	this->is_executed = 1;
 	return 0;
 }
 
 int PhoneBook::ContactSearch(int i)
 {
-	int j = 1;
+	int j = 0;
 
 	std::cout << "|" << std::setw(10) << "index";
 	std::cout << "|" << std::setw(10) << "first name";
@@ -64,40 +77,40 @@ int PhoneBook::ContactSearch(int i)
 		// std::cout << "|" << std::setw(10) << this->_contact[j].getNickName();
 		j++;
 	}
-	std:: string x;
-	std::cout << "juste avant 8"
+	char x;
+	std::cout << "avant allocation 8" << std::endl;
 	std::cin >> x; // verif nb entrer
-	std:: cout << "test pour 8";
-	if (x[0] < 48 || x[0] > 57)
+	std:: cout << "apres allocation 8" << std::endl;
+	if (x < 48 || x > 57)
 	{
+		this->is_executed = 1;
 		std::cout << "problem with your index" << std::endl;
 		return (1);
 	}
-	if (x.length() > 1)
+	else if (x == '9')
 	{
+		this->is_executed = 1;
 		std:: cout << "please enter a good index" << std::endl;
 		return (1);
 	}
-	else if (x[0] == '9')
-	{
-		std:: cout << "please enter a good index" << std::endl;
-		return (1);
-	}
+	// if (first_occurence == 1 && )
+	// {
+	// 	this->is_executed = 1;
+	// 	return (1);
+	// }
 	std:: cout << "test pour savoir 8";
-	int index = x[0] - 48;
+	int index = x - 48;
+	std::cout << "le problem viens d'ici";
 	std:: cout << "first name: " << this->_contact[index].getFirstName() << std::endl;
 	std:: cout << "last name: " << this->_contact[index].getLastName() << std::endl;
 	std:: cout << "Nick name: " << this->_contact[index].getNickName() << std::endl;
 	std:: cout << "Phone number: " << this->_contact[index].getPhoneNumber() << std::endl;
 	std:: cout << "Darkest secret: " << this->_contact[index].getDarkestSecret() << std::endl;
-	// this->is_executed = 1;
+	this->is_executed = 1;
 	return (0);
 	//print toute les infos de la recherche (iomanip)
 	//pour construire mon tab je dois:
 	// faire une liste de 4 colonne avec iomanip
 }
 
-// *nomVariable*.lenght
-
-// pour gerer overflow verif la len que je recoit
 // penser a gerer les tabs

@@ -6,21 +6,33 @@ int main()
 	std::string x;
 	PhoneBook 	phbIn;
 	Contact		ctcIn;
-	int i = 1;
+	int i = 0;
 
+	phbIn.setFirstOccurence(1);
 	while (42)
 	{
+		phbIn.setIsExecuted();
 		if (i > 8)
+		{
+			phbIn.setFirstOccurence(0);
 			i = 1;
+		}
 		std::cout << "please enter an input" << std::endl;
 		std::cin >> x;
 		if (x == "ADD")
 		{
-			phbIn.SetContact(i);
+			phbIn.setContact(i);
+			// std::cout << "voici ma valeur" << phbIn.getIsExecuted();
+			if (phbIn.getIsExecuted() == 0)
+				return (0);
 			i++;
 		}
 		else if (x == "SEARCH")
+		{
 			phbIn.ContactSearch(i);
+			if (phbIn.getIsExecuted() == 0)
+				return (0);
+		}
 		else if (x == "EXIT")
 			return 0;
 		else

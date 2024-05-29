@@ -9,14 +9,18 @@
 class PhoneBook{
 	public:
 	PhoneBook(void);
-	int SetContact(int &i);
-	void SetIsExecuted();
+	int setContact(int i);
+	void setIsExecuted();
+	void setFirstOccurence(int set);
+	int getFirstOccurence();
+	int getIsExecuted();
 	int ContactSearch(int i);
 	~PhoneBook(void);
 
 	private:
 	Contact	_contact[8];
 	int is_executed;
+	int	first_occurence;
 };
 
 #endif
