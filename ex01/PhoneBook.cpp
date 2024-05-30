@@ -37,6 +37,7 @@ int PhoneBook::setContact(int i)
 	std::cout << "voici mon index" << i << std::endl;
 	std::cout << "Please set the first name" << std::endl;
 	std::cin >> x;
+	std:: cout << "le first name viens d'etre ecris ET VOICI I" << i << std::endl;
 	this->_contact[i].setFirstName(x);
 	std::cout << "Please set the last name" << std::endl;
 	std::cin >> x;
@@ -63,34 +64,54 @@ int PhoneBook::ContactSearch(int i)
 	std::cout << "|" << std::setw(10) << "last name";
 	std::cout << "|" << std::setw(10) << "nickname";
 	std::cout << "|" << std::endl;
-	while (j < i)
+	if (this->first_occurence == 0)
 	{
-		std::cout << "|" << std::setw(10) << j << "|";
-		this->_contact[j].print_data(this->_contact[j].getFirstName());
-		std::cout << "|";
-		this->_contact[j].print_data(this->_contact[j].getLastName());
-		std::cout << "|";
-		this->_contact[j].print_data(this->_contact[j].getNickName());
-		std::cout << "|" << std::endl;
-		// std::cout << "|" << std::setw(10) << this->_contact[j].getFirstName();
-		// std::cout << "|" << std::setw(10) << this->_contact[j].getLastName();
-		// std::cout << "|" << std::setw(10) << this->_contact[j].getNickName();
-		j++;
+		while (j < 8)
+		{
+			std::cout << "|" << std::setw(10) << j << "|";
+			this->_contact[j].print_data(this->_contact[j].getFirstName());
+			std::cout << "|";
+			this->_contact[j].print_data(this->_contact[j].getLastName());
+			std::cout << "|";
+			this->_contact[j].print_data(this->_contact[j].getNickName());
+			std::cout << "|" << std::endl;
+			// std::cout << "|" << std::setw(10) << this->_contact[j].getFirstName();
+			// std::cout << "|" << std::setw(10) << this->_contact[j].getLastName();
+			// std::cout << "|" << std::setw(10) << this->_contact[j].getNickName();
+			j++;
+		}
+	}
+	else
+	{
+		while (j < i)
+		{
+			std::cout << "|" << std::setw(10) << j << "|";
+			this->_contact[j].print_data(this->_contact[j].getFirstName());
+			std::cout << "|";
+			this->_contact[j].print_data(this->_contact[j].getLastName());
+			std::cout << "|";
+			this->_contact[j].print_data(this->_contact[j].getNickName());
+			std::cout << "|" << std::endl;
+			// std::cout << "|" << std::setw(10) << this->_contact[j].getFirstName();
+			// std::cout << "|" << std::setw(10) << this->_contact[j].getLastName();
+			// std::cout << "|" << std::setw(10) << this->_contact[j].getNickName();
+			j++;
+		}
 	}
 	char x;
 	std::cout << "avant allocation 8" << std::endl;
 	std::cin >> x; // verif nb entrer
 	std:: cout << "apres allocation 8" << std::endl;
-	if (x < 48 || x > 57)
-	{
-		this->is_executed = 1;
-		std::cout << "problem with your index" << std::endl;
-		return (1);
-	}
-	else if (x == '9')
+	if (x == '9' || x == '8')
 	{
 		this->is_executed = 1;
 		std:: cout << "please enter a good index" << std::endl;
+		return (1);
+	}
+	else if (x < 48 || x > 57)
+	{
+		this->is_executed = 1;
+		std::cout << "problem with your index" << std::endl;
 		return (1);
 	}
 	// if (first_occurence == 1 && )

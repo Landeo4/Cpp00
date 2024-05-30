@@ -12,7 +12,7 @@ int main()
 	while (42)
 	{
 		phbIn.setIsExecuted();
-		if (i > 8)
+		if (i > 7)
 		{
 			phbIn.setFirstOccurence(0);
 			i = 1;
@@ -41,4 +41,6 @@ int main()
 	}
 }
 
+//pour la partie replacement de mes ancienne valeurs je pourrai cree un second
+// index qui a pour but de dire si tous mon tableau est remplis
 // essayer de trouver comment rendre cette excercice plus "c++"
