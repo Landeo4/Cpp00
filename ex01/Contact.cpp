@@ -74,10 +74,13 @@ void Contact::print_data(std::string str)
 	else
 	{
 		while (str[i])
+			i++;
+		std:: cout << std::setw(11 - i);
+		i = 0;
+		while (str[i])
 		{
 			std::cout << str[i];
 			i++;
 		}
-		std:: cout << std::setw(11 - i);
 	}
 }

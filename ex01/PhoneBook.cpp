@@ -34,31 +34,29 @@ int PhoneBook::setContact(int i)
 {
 	std::string x;
 
-	// std::cout << "voici mon index" << i << std::endl;
 	std::cout << "Please set the first name" << std::endl;
 	std::cin >> x;
-	if (x.empty())
+	if (!std::cin)
 		exit(1);
-	// std:: cout << "le first name viens d'etre ecris ET VOICI I" << i << std::endl;
 	this->_contact[i].setFirstName(x);
 	std::cout << "Please set the last name" << std::endl;
 	std::cin >> x;
-	if (x.empty())
+	if (!std::cin)
 		exit(1);
 	this->_contact[i].setLastName(x);
 	std::cout << "Please set the nickname" << std::endl;
 	std::cin >> x;
-	if (x.empty())
+	if (!std::cin)
 		exit(1);
 	this->_contact[i].setNickName(x);
 	std::cout << "Please set the Phone number" << std::endl;
 	std::cin >> x;
-	if (x.empty())
+	if (!std::cin)
 		exit(1);
 	this->_contact[i].setPhoneNumber(x);
 	std::cout << "Please set the darkest secret" << std::endl;
 	std::cin >> x;
-	if (x.empty())
+	if (!std::cin)
 		exit(1);
 	this->_contact[i].setDarkestSecret(x);
 	return 0;
@@ -84,9 +82,6 @@ int PhoneBook::ContactSearch(int i)
 			std::cout << "|";
 			this->_contact[j].print_data(this->_contact[j].getNickName());
 			std::cout << "|" << std::endl;
-			// std::cout << "|" << std::setw(10) << this->_contact[j].getFirstName();
-			// std::cout << "|" << std::setw(10) << this->_contact[j].getLastName();
-			// std::cout << "|" << std::setw(10) << this->_contact[j].getNickName();
 			j++;
 		}
 	}
@@ -101,19 +96,14 @@ int PhoneBook::ContactSearch(int i)
 			std::cout << "|";
 			this->_contact[j].print_data(this->_contact[j].getNickName());
 			std::cout << "|" << std::endl;
-			// std::cout << "|" << std::setw(10) << this->_contact[j].getFirstName();
-			// std::cout << "|" << std::setw(10) << this->_contact[j].getLastName();
-			// std::cout << "|" << std::setw(10) << this->_contact[j].getNickName();
 			j++;
 		}
 	}
 	std::string x;
-	// std::cout << "avant allocation 8" << std::endl;
-	std::cin >> x; // verif nb entrer
-	if (x.empty())
+	std::cin >> x;
+	if (!std::cin)
 		exit(1);
-	// std:: cout << "apres allocation 8" << std::endl;
-	if (x[0] >= 8)
+	if (x[0] >= '8')
 	{
 		std:: cout << "please enter a good index" << std::endl;
 		return (1);
@@ -128,31 +118,12 @@ int PhoneBook::ContactSearch(int i)
 		std::cout << "problem with your index" << std::endl;
 		return (1);
 	}
-	// if (first_occurence == 1 && )
-	// {
-	// 	this->is_executed = 1;
-	// 	return (1);
-	// }
-	// std:: cout << "test pour savoir 8";
 	int index = x[0] - 48;
-	// std::cout << "le problem viens d'ici";
+	std:: cout << "Here is the information of the " << x[0] << std::endl;
 	std:: cout << "first name: " << this->_contact[index].getFirstName() << std::endl;
 	std:: cout << "last name: " << this->_contact[index].getLastName() << std::endl;
 	std:: cout << "Nick name: " << this->_contact[index].getNickName() << std::endl;
 	std:: cout << "Phone number: " << this->_contact[index].getPhoneNumber() << std::endl;
 	std:: cout << "Darkest secret: " << this->_contact[index].getDarkestSecret() << std::endl;
 	return (0);
-	//print toute les infos de la recherche (iomanip)
-	//pour construire mon tab je dois:
-	// faire une liste de 4 colonne avec iomanip
 }
-
-// penser a gerer les tabs
-
-
-
-// Clarifier les prints.
-// Prendre le nombre entier pour l'index
-// Aligner a droite les infos du tableau.
-// Remplacer le contact 0 et pas le 1.
-// CTRL + D
