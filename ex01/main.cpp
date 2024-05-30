@@ -11,7 +11,6 @@ int main()
 	phbIn.setFirstOccurence(1);
 	while (42)
 	{
-		phbIn.setIsExecuted();
 		if (i > 7)
 		{
 			phbIn.setFirstOccurence(0);
@@ -23,16 +22,10 @@ int main()
 		{
 			phbIn.setContact(i);
 			// std::cout << "voici ma valeur" << phbIn.getIsExecuted();
-			if (phbIn.getIsExecuted() == 0)
-				return (0);
 			i++;
 		}
 		else if (x == "SEARCH")
-		{
 			phbIn.ContactSearch(i);
-			if (phbIn.getIsExecuted() == 0)
-				return (0);
-		}
 		else if (x == "EXIT")
 			return 0;
 		else
